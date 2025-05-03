@@ -1,4 +1,5 @@
 import './App.css'
+import MovieCard from './components/MovieCard';
 import Search from './components/Search'
 import React, { useState,  useEffect} from 'react'
 
@@ -18,7 +19,7 @@ export const App = () => {
  const [searchTerm, setSearchTerm] = useState('')
  const [errorMessage, setErrorMessage] = useState('')
  const [movieList, setMovieList] = useState([]);
- const [isLoading, setIsLoading] = useState('false');
+ const [isLoading, setIsLoading] = useState(false);
 
  const fetchMovies = async () => {
   setIsLoading(true);
@@ -78,7 +79,7 @@ export const App = () => {
         ) : (
           <ul>
             {movieList.map((movie) =>  (
-              <p key={movie.id} className="text-white">{movie.title}</p>
+              <MovieCard key={movie.id} movie={movie}/>
             ))}
           </ul>
         )}
